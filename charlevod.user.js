@@ -9,18 +9,21 @@
 // ==/UserScript==
 
 window.i = {
-	i: 0
+    i: 0
 }
 document.onreadystatechange = (function(){
-	++window.i.i
-	if(window.i.i==2){
-		document.querySelector("#chatMessagesWrapper").style["overflow-y"] = "scroll"
-		window.ol = function ol(a, b, c, d, e) {
-			// console.trace("ol",{ a: a, b: b, c: c, d: d, e: e })
-			e = { limit: 2000 };
-			null != d && (e.toTime = d);
-			"room" == b ? e.roomId = c : "private" == b && (e.nick = c);
-			return window.jh(a.qa, "loadLastMessages", e, !0)
-		}
-	}
+    ++window.i.i
+    if(window.i.i==2){
+        // Parte 0
+		document.querySelector(".chatMessagesWrapper").style["overflow-y"] = "scroll"
+
+        // Parte 1
+        window.ol = function ol(a, b, c, d, e) {
+            // console.trace("ol",{ a: a, b: b, c: c, d: d, e: e })
+            e = { limit: 900 };
+            null != d && (e.toTime = d);
+            "room" == b ? e.roomId = c : "private" == b && (e.nick = c);
+            return window.jh(a.qa, "loadLastMessages", e, !0)
+        }
+    }
 })
