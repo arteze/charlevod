@@ -4,7 +4,6 @@
 // @version     0.1
 // @author      ArtEze
 // @match       *://*.chatovod.com/*
-// @exclude     *://*.chatovod.com/*/edit/*
 // @grant       none
 // @run-at     document-start
 // ==/UserScript==
@@ -13,19 +12,21 @@ window.i = {
 	  i: 0
 	, counts: []
 	, restart_scroll: function restart_scroll(element) {
-		var style_default = document.querySelector("link[href*=default]")
-		style_default && style_default.remove()
-		var f = ( fetch("https://st1.chatovod.com/widget/css/default.css")
-			.then(x=>x.text())
-			.then(x=>{
-				var y = x
-					.replace(/url\(\.\.\/i\//g,"url\(https://st1.chatovod.com/widget/i/")
-					.replace(/div(.|\s){8}scrollbar-width(.|\s){413}/gm,"")
-				var style = document.createElement("style")
-				style.innerHTML = y
-				document.head.appendChild(style)
-			})
-		)
+		if(window.chatMenu){
+			var style_default = document.querySelector("link[href*=default]")
+			style_default && style_default.remove()
+			var f = ( fetch("https://st1.chatovod.com/widget/css/default.css")
+				.then(x=>x.text())
+				.then(x=>{
+					var y = x
+						.replace(/url\(\.\.\/i\//g,"url\(https://st1.chatovod.com/widget/i/")
+						.replace(/div(.|\s){8}scrollbar-width(.|\s){413}/gm,"")
+					var style = document.createElement("style")
+					style.innerHTML = y
+					document.head.appendChild(style)
+				})
+			)
+		}
 	}
 	, program: function program(){
 		document.onreadystatechange = (function ready(){
