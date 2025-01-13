@@ -30,10 +30,6 @@ window.i = {
 		document.onreadystatechange = (function ready(){
 			++window.i.i
 			if(window.i.i==2){
-				// Parte 0
-				var container = document.querySelector(".chatMessagesContainer")
-				container && (container.style["overflow-y"] = "scroll")
-
 				// Parte 1
 				window.ol = function ol(a, b, c, d, e) {
 					// console.trace("ol",{ a: a, b: b, c: c, d: d, e: e })
@@ -41,9 +37,6 @@ window.i = {
 					null != d && (e.toTime = d);
 					"room" == b ? e.roomId = c : "private" == b && (e.nick = c);
 					var devuelve = window.jh(a.qa, "loadLastMessages", e, !0)
-
-					var container = document.querySelector(".chatMessagesContainer")
-					container && ( container.style["overflow-y"] = "scroll" )
 					return devuelve
 				}
 
@@ -52,24 +45,23 @@ window.i = {
 			}
 		})
 		setInterval( function interval(){
-			var container = document.querySelector(".chatMessagesContainer")
+			var container = document.querySelector(".chatMessages")
 			if(container){
 				var count = container = document.querySelector(".chatMessages").childNodes.length
 				window.i.counts.push(count)
 				if( window.i.counts[window.i.counts.length-1] > window.i.counts[window.i.counts.length-2] + 800 ){
 					console.log("Subida detectada")
-					var container_scroll = document.querySelector(".chatMessages")
+					var container_scroll = document.querySelector(".chatMessagesContainer")
 					if(container_scroll.scrollTo){
 						setTimeout(function scroll_to(){
-							var container_scroll = document.querySelector(".chatMessages")
+							var container_scroll = document.querySelector(".chatMessagesContainer")
 							console.log("timeout container_scroll.scrollTo",container_scroll.scrollTo)
 							container_scroll.scrollTo(0, 100); // x: 0, y: 100
-						},1e3)
+						},500)
 					}
 				}
 			}
 		}, 100 )
-
 	}
 }
 window.i.program()
