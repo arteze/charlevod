@@ -4,6 +4,7 @@
 // @version     0.1
 // @author      ArtEze
 // @match       *://*.chatovod.com/*
+// @exclude     *://*.chatovod.com/*/edit/*
 // @grant       none
 // @run-at     document-start
 // ==/UserScript==
