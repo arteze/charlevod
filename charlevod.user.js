@@ -53,11 +53,9 @@ window.i = {
 					console.log("Subida detectada")
 					var container_scroll = document.querySelector(".chatMessagesContainer")
 					if(container_scroll.scrollTo){
-						setTimeout(function scroll_to(){
-							var container_scroll = document.querySelector(".chatMessagesContainer")
-							console.log("timeout container_scroll.scrollTo",container_scroll.scrollTo)
-							container_scroll.scrollTo(0, 100); // x: 0, y: 100
-						},500)
+                        container_scroll = document.querySelector(".chatMessagesContainer")
+                        console.log("timeout container_scroll.scrollTo",container_scroll.scrollTo)
+                        container_scroll.scrollTo(0, 100); // x: 0, y: 100
 					}
 				}
 			}
