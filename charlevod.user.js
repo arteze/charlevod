@@ -15,7 +15,8 @@ document.onreadystatechange = (function(){
     ++window.i.i
     if(window.i.i==2){
         // Parte 0
-		document.querySelector(".chatMessagesWrapper").style["overflow-y"] = "scroll"
+		var chatMessagesWrapper = document.querySelector(".chatMessagesWrapper")
+        chatMessagesWrapper && (chatMessagesWrapper.style["overflow-y"] = "scroll")
 
         // Parte 1
         window.ol = function ol(a, b, c, d, e) {
