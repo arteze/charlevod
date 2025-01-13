@@ -17,10 +17,9 @@ window.i = {
 		var f = ( fetch("https://st1.chatovod.com/widget/css/default.css")
 			.then(x=>x.text())
 			.then(x=>{
-				var y = x.replace(/url\(\.\.\/i\//g,"url\(https://st1.chatovod.com/widget/i/")
-				var y = y.replace(x,"div")
-				var z = y
-				var y = y.replace(/div(.|\s){8}scrollbar-width(.|\s){413}/gm,"")
+				var y = x
+					.replace(/url\(\.\.\/i\//g,"url\(https://st1.chatovod.com/widget/i/")
+					.replace(/div(.|\s){8}scrollbar-width(.|\s){413}/gm,"")
 				var style = document.createElement("style")
 				style.innerHTML = y
 				document.head.appendChild(style)
