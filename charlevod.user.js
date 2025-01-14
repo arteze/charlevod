@@ -19,7 +19,8 @@ window.i = {
 				.then(x=>x.text())
 				.then(x=>{
 					var y = x
-						.replace(/url\(\.\.\/i\//g,"url\(https://st1.chatovod.com/widget/i/")
+						.replace(/url\(\.\.\//g,"url\(https://st1.chatovod.com/widget/")
+						.replace(/url\(\.\.\/\.\.\//g,"url\(https://st1.chatovod.com/")
 						.replace(/div(.|\s){8}scrollbar-width(.|\s){413}/gm,"")
 					var style = document.createElement("style")
 					style.innerHTML = y
